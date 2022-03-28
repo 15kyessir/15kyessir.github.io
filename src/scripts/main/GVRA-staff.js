@@ -13,7 +13,7 @@ const simpleHash = (str) => {
 };
 try {
   if (accessToken === null && localStorage.getItem("gvra_s_at") === null || simpleHash(accessToken) !== "1kgrbih" && simpleHash(localStorage.getItem("gvra_s_at")) !== "1kgrbih" || accessToken === null && simpleHash(localStorage.getItem("gvra_s_at")) !== "1kgrbih") {
-    window.location.href = "/GVRA/"
+    window.location.href = "/GVRPS/"
   } else {
     if (localStorage.getItem("gvra_s_at") === null) {
       localStorage.setItem("gvra_s_at", accessToken)
@@ -36,5 +36,5 @@ document.getElementById("staff-logout-confirmation-cancel").addEventListener("cl
 });
 document.getElementById("staff-confirm-logout").addEventListener("click", function(e) {
   localStorage.removeItem("gvra_s_at")
-  window.location.href = "/GVRA/"
+  window.location.href = "/GVRPS/"
 });
