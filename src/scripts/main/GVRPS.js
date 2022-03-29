@@ -10,6 +10,7 @@ const simpleHash = (str) => {
 
 document.getElementById("GVRPS-staff-login-btn").addEventListener("click", (e) => {
   if (localStorage.getItem("gvra_s_at") !== null && simpleHash(localStorage.getItem("gvra_s_at")) === "1kgrbih") {
+    document.getElementById("GVRPS-staff-login-box").style.display = "none"
     window.location.href = "staff/"
   } else {
     document.getElementById("GVRPS-staff-login-box").style.display = "block"
