@@ -1,6 +1,14 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const accessToken = urlParams.get('secret');
+let accessToken = urlParams.get('secret');
+
+if (localStorage.getItem("gvra_s_at") === null) {
+  localStorage.setItem("gvra_s_at", "")
+}
+
+if (accessToken === null) {
+  accessToken = ""
+}
 
 const simpleHash = (str) => {
   let hash = 0;
@@ -11,16 +19,20 @@ const simpleHash = (str) => {
   }
   return new Uint32Array([hash])[0].toString(36);
 };
+
 try {
-  if (accessToken === null && localStorage.getItem("gvra_s_at") === null || simpleHash(accessToken) !== "1kgrbih" && simpleHash(localStorage.getItem("gvra_s_at")) !== "1kgrbih" || accessToken === null && simpleHash(localStorage.getItem("gvra_s_at")) !== "1kgrbih") {
+  if (localStorage.getItem("gvra_s_at") === null && accessToken === null) {
     window.location.href = "/GVRPS/"
+  } else if (simpleHash(localStorage.getItem("gvra_s_at")) === "1kgrbih" || simpleHash(accessToken) === "1kgrbih") {
+    console.log(simpleHash(accessToken) === "1kgrbih")
+    if (simpleHash(localStorage.getItem("gvra_s_at")) !== "1kgrbih")
+    localStorage.setItem("gvra_s_at", accessToken)
+    console.log(simpleHash(localStorage.getItem("gvra_s_at")) === "1kgrbih")
   } else {
-    if (localStorage.getItem("gvra_s_at") === null) {
-      localStorage.setItem("gvra_s_at", accessToken)
-    }
+    window.location.href = "/GVRPS/"
   }
 } catch (e) {
-
+  console.error(e)
 }
 
 if (accessToken !== null) {

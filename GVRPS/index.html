@@ -44,6 +44,15 @@
     </section>
     <section class="text-align">
       <h1 class="main-page-head1">Greenville Roleplay Society (GVRPS)</h1>
+      <button class="GVRPS-staff-login-btn" id="GVRPS-staff-login-btn">Staff Login</button>
+      <div class="GVRA-staff-logout-confirmation" id="GVRPS-staff-login-box">
+        <button class="GVRA-staff-logout-confirmation-cancel" id="staff-login-password-cancel">X</button>
+        <p class="margin-0">Enter Staff Password</p>
+        <form action="staff/">
+          <input type="text" name="secret">
+          <button type="submit" class="GVRPS-staff-login-btn GVRPS-staff-login-continue-btn">Continue</button>
+        </form>
+      </div>
       <div>
         <p>Join on <a href="https://www.roblox.com/games/891852901" target="_blank">Greenville</a></p>
         <br><br>
@@ -65,5 +74,6 @@
       </div>
     </section>
   </body>
+  <script src="/src/scripts/main/GVRPS.js"></script>
   <script src="/src/scripts/main/index.js"></script>
 </html>
